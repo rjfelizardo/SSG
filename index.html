@@ -155,9 +155,23 @@
     justify-content: center;
   }
 
-  .hero-right::before {
-    display: none;
+  .hero-right img {
+    position: absolute;
+    top: 0; right: 0;
+    width: 68%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 65% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 18%, black 48%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 18%, black 48%);
   }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    z-index: 1;
+    background: linear-gradient(95deg, #0d1b2a 0%, rgba(13,27,42,0.82) 22%, rgba(13,61,115,0.3) 50%, rgba(0,194,212,0.06) 100%);
+  }
+  .hero-mobile-photo { display: none; }
   .hero-stats {
     position: absolute; bottom: 3rem; right: 3rem; z-index: 3;
     display: flex; flex-direction: column; gap: 1.2rem;
@@ -500,6 +514,16 @@
     justify-content: center;
   }
     .hero-left { max-width: 100%; padding: 110px 2rem 60px; }
+    .hero-right { display: none; }
+    .hero-mobile-photo {
+      display: block;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: 65% center;
+      margin: 1.2rem 0 1.5rem;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+    }
     section { padding: 60px 2rem; }
     #sobre, #contato { grid-template-columns: 1fr; gap: 2.5rem; }
     .servicos-grid { grid-template-columns: repeat(2, 1fr); }
@@ -554,6 +578,7 @@
   <div class="hero-left">
     <div class="hero-eyebrow">Salvador · Bahia · Fundada em 2024</div>
     <h1>Soluções<br><em>Metálicas</em><br>de Alta Performance</h1>
+    <img class="hero-mobile-photo" src="https://images.unsplash.com/photo-1764245546004-e6b743242a80?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Soldador trabalhando com faíscas em ambiente industrial">
     <p class="hero-sub">Especialistas em corte, solda, pintura e manutenção de estruturas metálicas para residências, comércios e indústrias em toda a região Nordeste.</p>
     <div class="hero-cta-row">
       <a href="#servicos" class="btn-primary">Ver Serviços</a>
@@ -561,6 +586,7 @@
     </div>
   </div>
   <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1764245546004-e6b743242a80?fm=jpg&q=80&w=1600&auto=format&fit=crop" alt="Soldador trabalhando com faíscas em ambiente industrial">
   </div>
   </section>
 
