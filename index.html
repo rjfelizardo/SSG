@@ -517,24 +517,18 @@
     .hero-right { display: none; }
     .hero-mobile-photo-wrap {
       display: block;
-      position: relative;
-      overflow: hidden;
       margin: 1.2rem 0 1.5rem;
     }
     .hero-mobile-photo-wrap img {
       display: block;
       width: 100%;
-      height: 240px;
+      height: 270px;
       object-fit: cover;
       object-position: 55% 38%;
-    }
-    .hero-mobile-photo-wrap::after {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(to bottom, #0d1f30 0%, transparent 16%, transparent 84%, #0d1f30 100%),
-        linear-gradient(to right, #0d1f30 0%, transparent 14%, transparent 86%, #0d1f30 100%);
-      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 32%, black 68%, transparent 100%), linear-gradient(to right, transparent 0%, black 26%, black 74%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 32%, black 68%, transparent 100%), linear-gradient(to right, transparent 0%, black 26%, black 74%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
     }
     section { padding: 60px 2rem; }
     #sobre, #contato { grid-template-columns: 1fr; gap: 2.5rem; }
